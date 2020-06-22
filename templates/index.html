@@ -11,11 +11,23 @@
     <title>Reddit App</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <h1>NonZeroDay</h1>
+    <div class="container">
+    <div class="card-columns">
     {% for submissions in new_posts %}
-    <h1>{{submissions.title}}</h1>
-    <p>{{submissions.selftext}}</p>
+    <div class="card p-3">
+      <blockquote class="blockquote mb-0 card-body">
+        <h4>{{submissions.title}}</h4>
+        <footer class="footer">
+          <small class="text-muted">
+            {{submissions.selftext}}
+          </small>
+        </footer>
+      </blockquote>
+    </div>
     {% endfor %}
+    </div>
+  </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
