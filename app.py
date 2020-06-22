@@ -16,12 +16,16 @@ reddit = praw.Reddit(
                         user_agent=os.getenv("USER_AGENT")  
                     )
 
-print(reddit.read_only)
+@app.route('/')
+def hello_world():
+    print(reddit.read_only)
 
-subreddit = reddit.subreddit("NonZeroDay")
+    subreddit = reddit.subreddit("NonZeroDay")
+    new_posts = subreddit.new(limit=10)
 
-for submissions in subreddit.new(limit=10):
-    print(submissions.title)
+    for submissions in subreddit.new(limit=10):
+        print(submissions.title)
 
-test = os.getenv("TEST")
-print("look here" , test)
+    return render_template("index.html", new_posts=new_posts)
+
+
