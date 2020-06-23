@@ -23,8 +23,9 @@ def hello_world():
     subreddit = reddit.subreddit("NonZeroDay")
     new_posts = subreddit.new(limit=10)
 
-    for submissions in subreddit.new(limit=10):
-        print(submissions.title)
+    for each in subreddit.new(limit=10):
+         
+        print(each.selftext_html)
 
     return render_template("index.html", new_posts=new_posts)
 

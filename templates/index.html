@@ -13,21 +13,21 @@
   <body>
     <h1>NonZeroDay</h1>
     <div class="container">
-    <div class="card-columns">
-    {% for submissions in new_posts %}
-    <div class="card p-3">
-      <blockquote class="blockquote mb-0 card-body">
-        <h4>{{submissions.title}}</h4>
-        <footer class="footer">
-          <small class="text-muted">
-            {{submissions.selftext}}
-          </small>
-        </footer>
-      </blockquote>
+      <div class="card-columns">
+        {% for submissions in new_posts %}
+        <div class="card p-3">
+          <blockquote class="blockquote mb-0 card-body">
+            <h4>{{submissions.title}}</h4>
+            <footer class="footer">
+              <small class="text-muted">
+                {{submissions.selftext_html|safe}}
+              </small>
+            </footer>
+          </blockquote>
+        </div>
+        {% endfor %}
+        </div>
     </div>
-    {% endfor %}
-    </div>
-  </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
